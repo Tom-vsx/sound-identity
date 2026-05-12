@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-ui: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Contrast-safe text tokens (all ≥ 4.5:1 on #0a0a0f) */
+  --text-primary:   rgba(240, 235, 224, 0.92);   /* ~15:1 */
+  --text-secondary: rgba(240, 235, 224, 0.70);   /* ~9:1  */
+  --text-tertiary:  rgba(240, 235, 224, 0.55);   /* ~6:1  */
+  --text-muted:     rgba(240, 235, 224, 0.50);   /* ~5:1  */
+
+  /* Gold tokens */
+  --gold:           #c9a96e;
+  --gold-bright:    rgba(201, 169, 110, 0.90);   /* ~8:1  — use for small text */
+  --gold-mid:       rgba(201, 169, 110, 0.70);   /* ~5:1  — use for large labels */
+  --gold-dim:       rgba(201, 169, 110, 0.35);   /* decorative only, never text */
+
+  /* Surfaces */
+  --surface-0: #0a0a0f;
+  --surface-1: rgba(255, 255, 255, 0.03);
+  --surface-active: rgba(201, 169, 110, 0.07);
+
+  /* Borders */
+  --border-subtle:  rgba(201, 169, 110, 0.14);
+  --border-active:  rgba(201, 169, 110, 0.50);
+
+  /* ARCANE brand tokens */
+  --arcane-gold: #c8a96e;
+  --arcane-gold-dim: rgba(200, 169, 110, 0.4);
+  --arcane-gold-trace: rgba(200, 169, 110, 0.12);
+  --arcane-wordmark-font: var(--font-mono);
+  --arcane-tagline-font: var(--font-display);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: var(--surface-0);
+  font-family: var(--font-ui);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  color: var(--text-primary);
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+/* Focus visible — always show, never hide */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Remove outline on mouse click only */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 169, 110, 0.18);
+  border-radius: 99px;
+}
+
+input::placeholder {
+  color: rgba(240, 235, 224, 0.38);
+}
+
+input:focus {
+  outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
