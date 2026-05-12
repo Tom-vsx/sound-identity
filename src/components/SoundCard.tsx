@@ -976,24 +976,6 @@ export default function SoundCard({
   }
 
   // ── Actions ──────────────────────────────────────────────────────────────────
-  function handleShare() {
-    const text = [
-      `My Sound Identity`,
-      ``,
-      `${data.name}`,
-      `${data.genre} · ${data.bpm} BPM`,
-      ``,
-      `"${data.quote}"`,
-      ``,
-      `Power: ${data.superpower}`,
-      `Shadow: ${data.shadow}`,
-      `Place: ${data.place}`,
-      ``,
-      `Frequency #${data.frequency}`,
-    ].join('\n')
-    navigator.clipboard.writeText(text).catch(() => {})
-  }
-
   function handleSave() {
     const link      = document.createElement('a')
     link.href       = `/cards/${data.card_file}`

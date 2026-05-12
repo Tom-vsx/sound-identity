@@ -26,7 +26,6 @@ export default function JoinArcane({ onContinue }: Props) {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.32, 0.72, 0, 1],
       },
     },
   }
@@ -146,7 +145,6 @@ export default function JoinArcane({ onContinue }: Props) {
               fontSize: 'clamp(14px, 2.5vw, 16px)',
               color: 'rgba(240,235,224,0.58)',
               lineHeight: 1.7,
-              margin: 0,
               maxWidth: 520,
               margin: '0 auto',
             }}

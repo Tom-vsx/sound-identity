@@ -26,7 +26,6 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.32, 0.72, 0, 1],
       },
     },
   }
