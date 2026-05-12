@@ -19,6 +19,11 @@ export default function App() {
   const [apiError, setApiError] = useState<string | null>(null)
   const fetchedRef = useRef(false)
 
+  // Debug logging
+  useEffect(() => {
+    console.log('[AppPhase]', phase, { selections: !!selections, cardData: !!cardData, apiError })
+  }, [phase, selections, cardData, apiError])
+
   // Persist selections to prevent loss during navigation
   useEffect(() => {
     if (selections) {
