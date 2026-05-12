@@ -1459,64 +1459,93 @@ export default function SoundCard({
             ))}
           </div>
 
-          {/* Share button */}
-          <button
-            onClick={onNext}
-            aria-label="Copy card details to clipboard"
-            style={{
-              width:         '100%',
-              background:    'none',
-              border:        '1px solid rgba(201,169,110,0.22)',
-              borderRadius:  6,
-              padding:       '15px 0',
-              fontFamily:    'var(--font-mono)',
-              fontSize:      11,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color:         'rgba(201,169,110,0.58)',
-              cursor:        'pointer',
-              transition:    'all 0.25s cubic-bezier(0.32,0.72,0,1)',
-              minHeight:     50,
-              marginBottom:  56,
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.backgroundColor = 'rgba(201,169,110,0.06)'
-              e.currentTarget.style.color           = 'rgba(201,169,110,0.90)'
-              e.currentTarget.style.borderColor     = 'rgba(201,169,110,0.44)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.backgroundColor = 'transparent'
-              e.currentTarget.style.color           = 'rgba(201,169,110,0.58)'
-              e.currentTarget.style.borderColor     = 'rgba(201,169,110,0.22)'
-            }}
-            onMouseDown={e  => { e.currentTarget.style.transform = 'scale(0.98)' }}
-            onMouseUp={e    => { e.currentTarget.style.transform = 'scale(1)'    }}
-          >
-            Share my arcane
-          </button>
+          {/* Button container */}
+          <div style={{
+            display:      'flex',
+            gap:          16,
+            alignItems:   'center',
+            justifyContent: 'center',
+            marginBottom: 56,
+          }}>
+            {/* Primary button: Share my arcane */}
+            <button
+              onClick={onNext}
+              aria-label="Share my arcane card"
+              style={{
+                fontFamily:    'var(--font-mono)',
+                fontSize:      11,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                padding:       '16px 48px',
+                backgroundColor: 'var(--arcane-gold)',
+                border:        '1px solid var(--arcane-gold)',
+                borderRadius:  999,
+                color:         '#0a0a0f',
+                cursor:        'pointer',
+                transition:    'all 0.35s cubic-bezier(0.32,0.72,0,1)',
+                minHeight:     52,
+                display:       'flex',
+                alignItems:    'center',
+                justifyContent: 'center',
+                fontWeight:    600,
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.opacity = '0.85'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.opacity = '1'
+              }}
+              onMouseDown={e => {
+                e.currentTarget.style.transform = 'scale(0.98)'
+              }}
+              onMouseUp={e => {
+                e.currentTarget.style.transform = 'scale(1)'
+              }}
+            >
+              Share my arcane
+            </button>
 
-          {/* Start over */}
-          <button
-            onClick={onRestart}
-            style={{
-              display:       'block',
-              margin:        '0 auto',
-              background:    'none',
-              border:        'none',
-              cursor:        'pointer',
-              fontFamily:    'var(--font-mono)',
-              fontSize:      10,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color:         'rgba(201,169,110,0.24)',
-              padding:       '8px 16px',
-              transition:    'color 0.2s',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'rgba(201,169,110,0.58)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,169,110,0.24)')}
-          >
-            ← Start over
-          </button>
+            {/* Secondary button: Start over */}
+            <button
+              onClick={onRestart}
+              aria-label="Start over"
+              style={{
+                fontFamily:    'var(--font-mono)',
+                fontSize:      11,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                padding:       '16px 48px',
+                backgroundColor: 'transparent',
+                border:        '1px solid rgba(201,169,110,0.55)',
+                borderRadius:  999,
+                color:         'rgba(201,169,110,0.90)',
+                cursor:        'pointer',
+                transition:    'all 0.35s cubic-bezier(0.32,0.72,0,1)',
+                minHeight:     52,
+                display:       'flex',
+                alignItems:    'center',
+                justifyContent: 'center',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.backgroundColor = 'rgba(201,169,110,0.16)'
+                e.currentTarget.style.borderColor = 'rgba(201,169,110,0.75)'
+                e.currentTarget.style.color = '#c9a96e'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.backgroundColor = 'transparent'
+                e.currentTarget.style.borderColor = 'rgba(201,169,110,0.55)'
+                e.currentTarget.style.color = 'rgba(201,169,110,0.90)'
+              }}
+              onMouseDown={e => {
+                e.currentTarget.style.transform = 'scale(0.98)'
+              }}
+              onMouseUp={e => {
+                e.currentTarget.style.transform = 'scale(1)'
+              }}
+            >
+              ← Start over
+            </button>
+          </div>
         </div>
       </div>
 

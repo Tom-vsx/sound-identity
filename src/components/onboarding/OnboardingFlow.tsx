@@ -178,28 +178,28 @@ export default function OnboardingFlow({ onComplete }: Props) {
               fontSize: 11,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              padding: '14px 36px',
-              backgroundColor: ok ? 'rgba(201,169,110,0.10)' : 'transparent',
-              border: `1px solid ${ok ? 'rgba(201,169,110,0.55)' : 'rgba(201,169,110,0.14)'}`,
+              padding: ok ? '16px 48px' : '16px 48px',
+              backgroundColor: ok ? 'var(--arcane-gold)' : 'transparent',
+              border: `1px solid ${ok ? 'var(--arcane-gold)' : 'rgba(201,169,110,0.14)'}`,
               borderRadius: 999,
-              color: ok ? 'rgba(201,169,110,0.90)' : 'rgba(201,169,110,0.28)',
+              color: ok ? '#0a0a0f' : 'rgba(201,169,110,0.28)',
               cursor: ok ? 'pointer' : 'default',
               transition: 'all 0.35s cubic-bezier(0.32,0.72,0,1)',
-              minHeight: 48,
+              minHeight: 52,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: ok ? 600 : 400,
             }}
             onMouseEnter={e => {
               if (!ok) return
               const b = e.currentTarget as HTMLButtonElement
-              b.style.backgroundColor = 'rgba(201,169,110,0.16)'
-              b.style.borderColor = 'rgba(201,169,110,0.75)'
-              b.style.color = '#c9a96e'
+              b.style.opacity = '0.85'
             }}
             onMouseLeave={e => {
               if (!ok) return
               const b = e.currentTarget as HTMLButtonElement
-              b.style.backgroundColor = 'rgba(201,169,110,0.10)'
-              b.style.borderColor = 'rgba(201,169,110,0.55)'
-              b.style.color = 'rgba(201,169,110,0.90)'
+              b.style.opacity = '1'
             }}
             onMouseDown={e => {
               if (!ok) return
