@@ -19,8 +19,9 @@ interface CosmicBackgroundProps {
 export function CosmicBackground({ accent, isRevealing = false }: CosmicBackgroundProps) {
   const [stars] = useState(() => generateStars())
 
-  // Check for prefers-reduced-motion
+  // Check for prefers-reduced-motion and mobile
   const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
 
   // Generate deterministic star positions
   function generateStars() {
@@ -33,8 +34,9 @@ export function CosmicBackground({ accent, isRevealing = false }: CosmicBackgrou
       return seed / 233280
     }
 
-    // 70 stars: denser at edges, sparser near center
-    for (let i = 0; i < 70; i++) {
+    // Stars: denser at edges, sparser near center (fewer on mobile)
+    const starCount = typeof window !== 'undefined' && window.innerWidth < 768 ? 30 : 70
+    for (let i = 0; i < starCount; i++) {
       let x = seededRandom()
       let y = seededRandom()
 
@@ -110,8 +112,8 @@ export function CosmicBackground({ accent, isRevealing = false }: CosmicBackgrou
         }}
       />
 
-      {/* LAYER 3: God rays (8 rays) */}
-      <div
+      {/* LAYER 3: God rays (8 rays, disabled on mobile) */}
+      {!isMobile && <div
         style={{
           position: 'absolute',
           inset: 0,
@@ -164,9 +166,10 @@ export function CosmicBackground({ accent, isRevealing = false }: CosmicBackgrou
             </svg>
           </motion.div>
         ))}
-      </div>
+      </div>}
 
-      {/* LAYER 3.5: Nebula clouds (2-3 large drifting blobs) */}
+      {/* LAYER 3.5: Nebula clouds (2-3 large drifting blobs, disabled on mobile) */}
+      {!isMobile && (
       <div
         style={{
           position: 'absolute',
@@ -244,8 +247,9 @@ export function CosmicBackground({ accent, isRevealing = false }: CosmicBackgrou
           }}
         />
       </div>
+      )}
 
-      {/* LAYER 4: Particle drift (15-20 tiny particles) */}
+      {/* LAYER 4: Particle drift (15-20 tiny particles, reduced on mobile) */}
       <div
         style={{
           position: 'absolute',
@@ -254,7 +258,7 @@ export function CosmicBackground({ accent, isRevealing = false }: CosmicBackgrou
           pointerEvents: 'none',
         }}
       >
-        {Array.from({ length: 18 }, (_, i) => {
+        {Array.from({ length: isMobile ? 6 : 18 }, (_, i) => {
           // Seeded random for particle positions and properties
           let seed = 42 + i * 117
           function seededRandom() {
