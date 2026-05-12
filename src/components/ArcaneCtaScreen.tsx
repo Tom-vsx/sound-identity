@@ -43,6 +43,63 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
         overflow: 'hidden',
       }}
     >
+      {/* Starfield background */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: `radial-gradient(2px 2px at 20px 30px, #eee, rgba(255,255,255,0.2)),
+                       radial-gradient(2px 2px at 60px 70px, #fff, rgba(255,255,255,0.3)),
+                       radial-gradient(1px 1px at 50px 50px, #fff, rgba(255,255,255,0.2)),
+                       radial-gradient(1px 1px at 130px 80px, #fff, rgba(255,255,255,0.2)),
+                       radial-gradient(2px 2px at 90px 10px, #fff, rgba(255,255,255,0.3))`,
+          backgroundSize: '200px 200px',
+          backgroundPosition: '0 0, 40px 60px, 130px 270px, 70px 100px, 150px 200px',
+          opacity: 0.20,
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+
+      {/* Cosmic rings */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          width: '800px',
+          height: '800px',
+          transform: 'translate(-50%, -50%) rotateX(75deg)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            inset: '20%',
+            border: '1.5px solid rgba(201,169,110,0.15)',
+            borderRadius: '50%',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            inset: '10%',
+            border: '1.5px solid rgba(201,169,110,0.12)',
+            borderRadius: '50%',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            inset: '0%',
+            border: '1.5px solid rgba(201,169,110,0.10)',
+            borderRadius: '50%',
+          }}
+        />
+      </div>
+
       {/* Hero Visual Section */}
       <div
         style={{
@@ -51,9 +108,9 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
           left: 0,
           right: 0,
           height: '40dvh',
-          background: 'linear-gradient(to bottom, rgba(201,169,110,0.12) 0%, rgba(201,169,110,0.04) 40%, transparent 100%)',
+          background: 'linear-gradient(to bottom, rgba(201,169,110,0.16) 0%, rgba(201,169,110,0.06) 40%, transparent 100%)',
           pointerEvents: 'none',
-          zIndex: 0,
+          zIndex: 1,
           overflow: 'hidden',
         }}
       />
@@ -64,10 +121,10 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
           position: 'absolute',
           top: '5%',
           right: '-15%',
-          width: '700px',
-          height: '700px',
+          width: '800px',
+          height: '800px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(201,169,110,0.10) 0%, transparent 75%)',
+          background: 'radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -77,10 +134,10 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
           position: 'absolute',
           top: '20%',
           left: '-20%',
-          width: '500px',
-          height: '500px',
+          width: '600px',
+          height: '600px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 75%)',
+          background: 'radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -219,7 +276,7 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
             },
             {
               label: 'Join the Collective',
-              description: 'Become part of ARCANE—an exclusive community of sonic explorers. Access curated playlists, live events, and premium discoveries.',
+              description: 'Become part of ARCANE: an exclusive community of sonic explorers. Access curated playlists, live events, and premium discoveries.',
               icon: '♪',
               colSpan: 1,
             },
@@ -239,8 +296,9 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
                 gridColumn: `span ${benefit.colSpan}`,
                 padding: '32px',
                 borderRadius: 16,
-                backgroundColor: 'rgba(201,169,110,0.06)',
-                border: '1px solid rgba(201,169,110,0.15)',
+                backgroundColor: 'rgba(201,169,110,0.14)',
+                border: '1.5px solid rgba(201,169,110,0.35)',
+                backdropFilter: 'blur(4px)',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 16,
@@ -249,15 +307,17 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.backgroundColor = 'rgba(201,169,110,0.12)';
-                el.style.borderColor = 'rgba(201,169,110,0.30)';
-                el.style.transform = 'translateY(-4px)';
+                el.style.backgroundColor = 'rgba(201,169,110,0.22)';
+                el.style.borderColor = 'rgba(201,169,110,0.50)';
+                el.style.transform = 'translateY(-6px)';
+                el.style.boxShadow = '0 16px 40px rgba(201,169,110,0.20)';
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.backgroundColor = 'rgba(201,169,110,0.06)';
-                el.style.borderColor = 'rgba(201,169,110,0.15)';
+                el.style.backgroundColor = 'rgba(201,169,110,0.14)';
+                el.style.borderColor = 'rgba(201,169,110,0.35)';
                 el.style.transform = 'translateY(0)';
+                el.style.boxShadow = 'none';
               }}
             >
               <div
@@ -286,7 +346,7 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
                   style={{
                     fontFamily: 'var(--font-ui)',
                     fontSize: 13,
-                    color: 'rgba(240,235,224,0.65)',
+                    color: 'rgba(240,235,224,0.70)',
                     margin: 0,
                     lineHeight: 1.6,
                   }}
@@ -303,12 +363,14 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
           variants={itemVariants}
           style={{
             display: 'flex',
-            flexDirection: 'column',
-            gap: '16px',
+            flexDirection: 'row',
+            gap: '12px',
             alignItems: 'center',
+            justifyContent: 'center',
             width: '100%',
-            maxWidth: 360,
+            maxWidth: 620,
             margin: '0 auto 80px',
+            flexWrap: 'wrap',
           }}
         >
           {/* Primary CTA */}
@@ -317,33 +379,34 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
             onMouseLeave={() => setHoveredButton(null)}
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
+              fontSize: '12px',
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              padding: '16px 48px',
+              padding: '18px 56px',
               backgroundColor: 'var(--arcane-gold)',
-              border: '1px solid var(--arcane-gold)',
-              borderRadius: '999px',
+              border: '2px solid var(--arcane-gold)',
+              borderRadius: '8px',
               color: '#0a0a0f',
               cursor: 'pointer',
               transition: 'all 0.35s cubic-bezier(0.32,0.72,0,1)',
-              minHeight: '52px',
+              minHeight: '56px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '100%',
-              fontWeight: 600,
-              boxShadow: hoveredButton === 'share' ? '0 12px 32px rgba(201,169,110,0.25)' : '0 4px 16px rgba(201,169,110,0.12)',
-              transform: hoveredButton === 'share' ? 'translateY(-2px)' : 'translateY(0)',
+              flex: '1 1 auto',
+              minWidth: '280px',
+              fontWeight: 700,
+              boxShadow: hoveredButton === 'share' ? '0 20px 50px rgba(201,169,110,0.40)' : '0 12px 32px rgba(201,169,110,0.25)',
+              transform: hoveredButton === 'share' ? 'translateY(-4px)' : 'translateY(0)',
             }}
             onMouseDown={e => {
-              ;(e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.96) translateY(-2px)'
+              ;(e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.95) translateY(-4px)'
             }}
             onMouseUp={e => {
-              ;(e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-2px)'
+              ;(e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-4px)'
             }}
           >
-            Save & Share My Arcane
+            Save & Share
           </button>
 
           {/* Secondary CTA */}
@@ -353,34 +416,38 @@ export default function ArcaneCtaScreen({ onRestart }: Props) {
             onMouseLeave={() => setHoveredButton(null)}
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
+              fontSize: '12px',
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              padding: '16px 48px',
+              padding: '18px 56px',
               backgroundColor:
-                hoveredButton === 'restart' ? 'rgba(201,169,110,0.10)' : 'transparent',
-              border: `1px solid ${
-                hoveredButton === 'restart' ? 'rgba(201,169,110,0.40)' : 'rgba(201,169,110,0.20)'
+                hoveredButton === 'restart' ? 'rgba(201,169,110,0.25)' : 'rgba(201,169,110,0.15)',
+              border: `2px solid ${
+                hoveredButton === 'restart' ? 'rgba(201,169,110,0.75)' : 'rgba(201,169,110,0.60)'
               }`,
-              borderRadius: '999px',
+              borderRadius: '8px',
               color:
-                hoveredButton === 'restart' ? 'rgba(201,169,110,0.90)' : 'rgba(201,169,110,0.60)',
+                hoveredButton === 'restart' ? 'var(--arcane-gold)' : 'var(--arcane-gold)',
               cursor: 'pointer',
               transition: 'all 0.35s cubic-bezier(0.32,0.72,0,1)',
-              minHeight: '52px',
+              minHeight: '56px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '100%',
+              flex: '1 1 auto',
+              minWidth: '280px',
+              fontWeight: 600,
+              boxShadow: hoveredButton === 'restart' ? '0 16px 40px rgba(201,169,110,0.28)' : '0 8px 20px rgba(201,169,110,0.15)',
+              transform: hoveredButton === 'restart' ? 'translateY(-4px)' : 'translateY(0)',
             }}
             onMouseDown={e => {
-              ;(e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.98)'
+              ;(e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97) translateY(-4px)'
             }}
             onMouseUp={e => {
-              ;(e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)'
+              ;(e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-4px)'
             }}
           >
-            Discover Another Frequency
+            Another Frequency
           </button>
         </motion.div>
 

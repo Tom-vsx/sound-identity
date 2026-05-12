@@ -175,17 +175,18 @@ export default function OnboardingFlow({ onComplete }: Props) {
             aria-disabled={!ok}
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: 11,
+              fontSize: 12,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              padding: '14px 36px',
+              padding: '18px 56px',
               backgroundColor: ok ? 'rgba(201,169,110,0.10)' : 'transparent',
-              border: `1px solid ${ok ? 'rgba(201,169,110,0.55)' : 'rgba(201,169,110,0.14)'}`,
-              borderRadius: 999,
+              border: `2px solid ${ok ? 'rgba(201,169,110,0.55)' : 'rgba(201,169,110,0.14)'}`,
+              borderRadius: 8,
               color: ok ? 'rgba(201,169,110,0.90)' : 'rgba(201,169,110,0.28)',
               cursor: ok ? 'pointer' : 'default',
               transition: 'all 0.35s cubic-bezier(0.32,0.72,0,1)',
-              minHeight: 48,
+              minHeight: 56,
+              boxShadow: ok ? '0 8px 20px rgba(201,169,110,0.15)' : 'none',
             }}
             onMouseEnter={e => {
               if (!ok) return
@@ -203,7 +204,7 @@ export default function OnboardingFlow({ onComplete }: Props) {
             }}
             onMouseDown={e => {
               if (!ok) return
-              ;(e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.98)'
+              ;(e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97)'
             }}
             onMouseUp={e => {
               ;(e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)'

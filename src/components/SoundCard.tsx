@@ -435,7 +435,7 @@ function StoryModal({
         style={{
           background:    downloading ? 'rgba(201,169,110,0.10)' : 'rgba(201,169,110,0.08)',
           border:        `1px solid rgba(201,169,110,${downloading ? '0.20' : '0.36'})`,
-          borderRadius:  6,
+          borderRadius:  8,
           padding:       '12px 28px',
           fontFamily:    'var(--font-mono)',
           fontSize:      11,
@@ -754,7 +754,7 @@ function GalleryModal({
             style={{
               background:    'none',
               border:        '1px solid rgba(240,235,224,0.14)',
-              borderRadius:  4,
+              borderRadius:  8,
               color:         'rgba(240,235,224,0.45)',
               fontFamily:    'var(--font-mono)',
               fontSize:      10,
@@ -1250,7 +1250,7 @@ export default function SoundCard({
               style={{
                 background:    'rgba(201,169,110,0.07)',
                 border:        '1px solid rgba(201,169,110,0.32)',
-                borderRadius:  4,
+                borderRadius:  8,
                 padding:       '10px 18px',
                 fontFamily:    'var(--font-mono)',
                 fontSize:      11,
@@ -1459,64 +1459,87 @@ export default function SoundCard({
             ))}
           </div>
 
-          {/* Share button */}
-          <button
-            onClick={onNext}
-            aria-label="Copy card details to clipboard"
-            style={{
-              width:         '100%',
-              background:    'none',
-              border:        '1px solid rgba(201,169,110,0.22)',
-              borderRadius:  6,
-              padding:       '15px 0',
-              fontFamily:    'var(--font-mono)',
-              fontSize:      11,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color:         'rgba(201,169,110,0.58)',
-              cursor:        'pointer',
-              transition:    'all 0.25s cubic-bezier(0.32,0.72,0,1)',
-              minHeight:     50,
-              marginBottom:  56,
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.backgroundColor = 'rgba(201,169,110,0.06)'
-              e.currentTarget.style.color           = 'rgba(201,169,110,0.90)'
-              e.currentTarget.style.borderColor     = 'rgba(201,169,110,0.44)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.backgroundColor = 'transparent'
-              e.currentTarget.style.color           = 'rgba(201,169,110,0.58)'
-              e.currentTarget.style.borderColor     = 'rgba(201,169,110,0.22)'
-            }}
-            onMouseDown={e  => { e.currentTarget.style.transform = 'scale(0.98)' }}
-            onMouseUp={e    => { e.currentTarget.style.transform = 'scale(1)'    }}
-          >
-            Share my arcane
-          </button>
+          {/* CTA buttons — side by side */}
+          <div style={{
+            display:       'flex',
+            gap:           12,
+            marginBottom:  32,
+          }}>
+            {/* Share button — Primary */}
+            <button
+              onClick={onNext}
+              aria-label="Copy card details to clipboard"
+              style={{
+                flex:          1,
+                background:    'var(--arcane-gold)',
+                border:        '2px solid var(--arcane-gold)',
+                borderRadius:  8,
+                padding:       '18px 24px',
+                fontFamily:    'var(--font-mono)',
+                fontSize:      12,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color:         '#0a0a0f',
+                cursor:        'pointer',
+                transition:    'all 0.35s cubic-bezier(0.32,0.72,0,1)',
+                minHeight:     56,
+                fontWeight:    700,
+                boxShadow:     '0 12px 32px rgba(201,169,110,0.25)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.boxShadow       = '0 16px 40px rgba(201,169,110,0.35)'
+                e.currentTarget.style.transform       = 'translateY(-2px)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.boxShadow       = '0 12px 32px rgba(201,169,110,0.25)'
+                e.currentTarget.style.transform       = 'translateY(0)'
+              }}
+              onMouseDown={e  => { e.currentTarget.style.transform = 'scale(0.97) translateY(-2px)' }}
+              onMouseUp={e    => { e.currentTarget.style.transform = 'translateY(-2px)' }}
+            >
+              Share my arcane
+            </button>
 
-          {/* Start over */}
-          <button
-            onClick={onRestart}
-            style={{
-              display:       'block',
-              margin:        '0 auto',
-              background:    'none',
-              border:        'none',
-              cursor:        'pointer',
-              fontFamily:    'var(--font-mono)',
-              fontSize:      10,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color:         'rgba(201,169,110,0.24)',
-              padding:       '8px 16px',
-              transition:    'color 0.2s',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'rgba(201,169,110,0.58)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,169,110,0.24)')}
-          >
-            ← Start over
-          </button>
+            {/* Start over — Secondary */}
+            <button
+              onClick={onRestart}
+              style={{
+                flex:          0.6,
+                background:    'rgba(201,169,110,0.15)',
+                border:        '2px solid rgba(201,169,110,0.60)',
+                cursor:        'pointer',
+                fontFamily:    'var(--font-mono)',
+                fontSize:      12,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color:         'rgba(201,169,110,0.90)',
+                padding:       '18px 24px',
+                transition:    'all 0.35s cubic-bezier(0.32,0.72,0,1)',
+                borderRadius:  8,
+                minHeight:     56,
+                fontWeight:    600,
+                boxShadow:     '0 8px 20px rgba(201,169,110,0.15)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.backgroundColor = 'rgba(201,169,110,0.22)'
+                e.currentTarget.style.borderColor     = 'rgba(201,169,110,0.75)'
+                e.currentTarget.style.color           = 'var(--arcane-gold)'
+                e.currentTarget.style.boxShadow       = '0 12px 32px rgba(201,169,110,0.25)'
+                e.currentTarget.style.transform       = 'translateY(-2px)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.backgroundColor = 'rgba(201,169,110,0.15)'
+                e.currentTarget.style.borderColor     = 'rgba(201,169,110,0.60)'
+                e.currentTarget.style.color           = 'rgba(201,169,110,0.90)'
+                e.currentTarget.style.boxShadow       = '0 8px 20px rgba(201,169,110,0.15)'
+                e.currentTarget.style.transform       = 'translateY(0)'
+              }}
+              onMouseDown={e  => { e.currentTarget.style.transform = 'scale(0.97) translateY(-2px)' }}
+              onMouseUp={e    => { e.currentTarget.style.transform = 'translateY(-2px)' }}
+            >
+              ← Start over
+            </button>
+          </div>
         </div>
       </div>
 

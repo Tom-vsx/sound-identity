@@ -505,9 +505,9 @@ export default function SplashScreen({ onEnter }: Props) {
             aria-disabled={!ctaEnabled || scattering}
             style={{
               background:    'none',
-              border:        '1px solid rgba(201,169,110,0.30)',
-              borderRadius:  4,
-              padding:       '15px 42px',
+              border:        '2px solid rgba(201,169,110,0.30)',
+              borderRadius:  8,
+              padding:       '18px 56px',
               fontFamily:    'var(--font-display)',
               fontSize:      19,
               fontStyle:     'italic',
@@ -515,11 +515,12 @@ export default function SplashScreen({ onEnter }: Props) {
               color:         'rgba(201,169,110,0.76)',
               cursor:        ctaEnabled && !scattering ? 'pointer' : 'default',
               letterSpacing: '0.01em',
-              minHeight:     52,
+              minHeight:     56,
               pointerEvents: ctaEnabled && !scattering ? 'auto' : 'none',
               transition:    'border-color 0.3s, color 0.3s, outline 0.2s',
               animation:     !ctaHovered && ctaEnabled && !scattering && !prefersReducedMotion ? 'pulse-border 3.2s ease-in-out infinite' : 'none',
               outline:       '0',
+              boxShadow:     '0 8px 20px rgba(201,169,110,0.12)',
             }}
             onFocus={(e) => {
               e.currentTarget.style.outline = '2px solid rgba(201,169,110,0.60)'
