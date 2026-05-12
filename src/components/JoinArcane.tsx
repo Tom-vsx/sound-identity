@@ -67,6 +67,31 @@ export default function JoinArcane({ onContinue }: Props) {
         overflow: 'hidden',
       }}
     >
+      {/* Background gradient elements */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '-15%',
+          left: '-20%',
+          width: '500px',
+          height: '500px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '-25%',
+          right: '-10%',
+          width: '450px',
+          height: '450px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(201,169,110,0.05) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }}
+      />
 
       <motion.div
         variants={containerVariants}
@@ -124,15 +149,15 @@ export default function JoinArcane({ onContinue }: Props) {
               margin: '0 auto',
             }}
           >
-            Your frequency has been revealed. Now unlock the full ARCANE experience: exclusive features, curated discoveries, and a community of sonic explorers like you.
+            Your frequency has been revealed. Now unlock the full ARCANE experience — exclusive features, curated discoveries, and a community of sonic explorers like you.
           </p>
         </motion.div>
 
-        {/* Tiles Grid - Bento Layout */}
+        {/* Tiles Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
             gap: 20,
             marginBottom: 64,
             width: '100%',
@@ -157,25 +182,23 @@ export default function JoinArcane({ onContinue }: Props) {
                 animate={{
                   backgroundColor:
                     hoveredTile === idx
-                      ? 'rgba(201,169,110,0.22)'
-                      : 'rgba(201,169,110,0.14)',
+                      ? 'rgba(201,169,110,0.12)'
+                      : 'rgba(201,169,110,0.04)',
                   borderColor:
                     hoveredTile === idx
-                      ? 'rgba(201,169,110,0.50)'
-                      : 'rgba(201,169,110,0.35)',
+                      ? 'rgba(201,169,110,0.35)'
+                      : 'rgba(201,169,110,0.15)',
                   transform: hoveredTile === idx ? 'translateY(-4px)' : 'translateY(0)',
                 }}
                 transition={{ duration: 0.3 }}
                 style={{
                   padding: 'clamp(24px, 5vw, 32px)',
-                  border: '1.5px solid rgba(201,169,110,0.35)',
+                  border: '1px solid rgba(201,169,110,0.15)',
                   borderRadius: 16,
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: 12,
-                  backdropFilter: 'blur(4px)',
-                  boxShadow: '0 8px 24px rgba(201,169,110,0.12)',
                 }}
               >
                 <div
@@ -233,29 +256,28 @@ export default function JoinArcane({ onContinue }: Props) {
           <button
             onClick={onContinue}
             onMouseDown={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.95)'
+              (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.98)'
             }}
             onMouseUp={(e) => {
               (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)'
             }}
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '12px',
+              fontSize: '11px',
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              padding: '18px 56px',
+              padding: '16px 48px',
               backgroundColor: 'var(--arcane-gold)',
-              border: '2px solid var(--arcane-gold)',
-              borderRadius: '8px',
+              border: '1px solid var(--arcane-gold)',
+              borderRadius: '999px',
               color: '#0a0a0f',
               cursor: 'pointer',
               transition: 'all 0.35s cubic-bezier(0.32,0.72,0,1)',
-              minHeight: '56px',
+              minHeight: '52px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontWeight: 700,
-              boxShadow: '0 12px 32px rgba(201,169,110,0.25)',
+              fontWeight: 600,
             }}
           >
             Enter ARCANE
