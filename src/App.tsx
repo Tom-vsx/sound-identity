@@ -19,12 +19,20 @@ export default function App() {
   const [apiError, setApiError] = useState<string | null>(null)
   const fetchedRef = useRef(false)
 
+  // Persist selections to prevent loss during navigation
+  useEffect(() => {
+    if (selections) {
+      sessionStorage.setItem('sound_selections', JSON.stringify(selections))
+    }
+  }, [selections])
+
   function handleSplashDone() {
     setPhase('onboarding')
   }
 
   function handleOnboardingComplete(s: UserSelections) {
     setSelections(s)
+    localStorage.setItem('sound_selections_backup', JSON.stringify(s))
     setPhase('reveal')
   }
 
