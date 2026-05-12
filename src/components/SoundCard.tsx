@@ -1030,7 +1030,7 @@ export default function SoundCard({
               animate={{ opacity: 1, y: 0,  scale: 1 }}
               transition={PREFERS_REDUCED_MOTION ? {} : {
                 duration: 0.95,
-                ease: [0.22, 1, 0.36, 1],
+                
                 type: 'spring',
                 stiffness: 100,
                 damping: 20
@@ -1228,7 +1228,7 @@ export default function SoundCard({
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 0.5, duration: 0.8 }}
           style={{
             display:        'flex',
             gap:            10,

@@ -288,7 +288,7 @@ export default function SplashScreen({ onEnter }: Props) {
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.7, duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 1.7, duration: 1.5 }}
           style={{
             fontFamily:    'var(--font-display)',
             fontSize:      'clamp(24px, 4.8vw, 44px)',
@@ -448,8 +448,8 @@ export default function SplashScreen({ onEnter }: Props) {
                   }
                   transition={
                     scattering
-                      ? { duration: 0.52, delay: i * 0.033, ease: [0.4, 0, 1, 1] }
-                      : { delay: enterDelay, duration: 0.78, ease: [0.22, 1, 0.36, 1] }
+                      ? { duration: 0.52, delay: i * 0.033 }
+                      : { delay: enterDelay, duration: 0.78 }
                   }
                   whileHover={
                     !scattering
@@ -494,7 +494,7 @@ export default function SplashScreen({ onEnter }: Props) {
             transition={
               scattering
                 ? { duration: 0.18 }
-                : { delay: prefersReducedMotion ? 0 : 2.6, duration: prefersReducedMotion ? 0 : 1.0, ease: [0.22, 1, 0.36, 1] }
+                : { delay: prefersReducedMotion ? 0 : 2.6, duration: prefersReducedMotion ? 0 : 1.0 }
             }
             whileHover={!scattering ? { scale: 1.03 } : {}}
             whileTap={!scattering ? { scale: 0.97 } : {}}

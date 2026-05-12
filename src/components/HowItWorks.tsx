@@ -42,7 +42,7 @@ export default function HowItWorks({ isOpen, onClose }: Props) {
             initial={{ opacity: 0, scale: 0.94, x: '-50%', y: 'calc(-50% + 20px)' }}
             animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
             exit={{ opacity: 0, scale: 0.94, x: '-50%', y: 'calc(-50% + 20px)' }}
-            transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
+            transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
             style={{
               position: 'fixed',

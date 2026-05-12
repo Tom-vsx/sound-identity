@@ -216,7 +216,7 @@ export function CardRevealAnimation({
             } : {
               duration: 0.6,
               delay: 0,
-              ease: [0.4, 0, 0.2, 1], // Ceremonial easing
+               // Ceremonial easing
             }
           }
           style={{

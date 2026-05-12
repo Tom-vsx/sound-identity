@@ -190,7 +190,7 @@ export default function JoinArcane({ onContinue }: Props) {
                       : 'rgba(201,169,110,0.15)',
                   transform: hoveredTile === idx ? 'translateY(-4px)' : 'translateY(0)',
                 }}
-                transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
+                transition={{ duration: 0.3 }}
                 style={{
                   padding: 'clamp(24px, 5vw, 32px)',
                   border: '1px solid rgba(201,169,110,0.15)',
